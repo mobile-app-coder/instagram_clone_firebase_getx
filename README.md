@@ -16,7 +16,7 @@ Libraries used in this application:
   
   firebase_core: ^2.28.0
   
-  firebase_auth: ^4.19.0
+  firebase_auth: ^4.19.0download.png
   
   cloud_firestore: ^4.16.0
   
@@ -42,6 +42,7 @@ Libraries used in this application:
 You can download the latest version of the APK from the [Releases](app-release.apk) page.
 
 Or scan qrcode to download
+
 ![Image description](download.png)
 
 
