@@ -16,6 +16,8 @@ class FeedController extends GetxController {
     isLoading = true;
     update();
     await DBService.likePost(post, true);
+    update();
+
 
     isLoading = false;
     post.liked = true;
@@ -34,6 +36,8 @@ class FeedController extends GetxController {
     DBService.loadFeeds().then((value) => {
           resLoadFeeds(value),
         });
+    update();
+
   }
 
   void apiPostUnLike(Post post) async {

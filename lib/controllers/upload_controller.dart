@@ -26,7 +26,6 @@ class UploadController extends GetxController {
   imgFromGallery() async {
     XFile? img = await _imagePicker.pickImage(
         source: ImageSource.gallery, imageQuality: 50);
-
     image = File(img!.path);
     update();
   }

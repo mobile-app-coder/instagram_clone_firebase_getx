@@ -23,15 +23,20 @@ class _LikesPageState extends State<LikesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          ListView.builder(
-            itemCount: _controller.items.length,
-            itemBuilder: (context, index) {
-              return itemOfPost(_controller.items[index], context, _controller);
-            },
-          )
-        ],
+      body: GetBuilder<LikePageController>(
+        builder: (_) {
+          return Stack(
+            children: [
+              ListView.builder(
+                itemCount: _controller.items.length,
+                itemBuilder: (context, index) {
+                  return itemOfPost(
+                      _controller.items[index], context, _controller);
+                },
+              )
+            ],
+          );
+        },
       ),
     );
   }

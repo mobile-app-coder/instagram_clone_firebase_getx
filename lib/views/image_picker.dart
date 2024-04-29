@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone_firebase_getx/controllers/upload_controller.dart';
 
-void showPicker(context, _controller) {
+void showPicker(BuildContext context, UploadController controller) {
   showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -12,7 +13,7 @@ void showPicker(context, _controller) {
                 leading: Icon(Icons.photo_camera),
                 title: Text("Pick Photo"),
                 onTap: () {
-                  _controller.imgFromCamera();
+                  controller.imgFromCamera();
                   Navigator.of(context).pop();
                 },
               ),
@@ -20,7 +21,7 @@ void showPicker(context, _controller) {
                 leading: Icon(Icons.photo_library),
                 title: Text("Pick Photo"),
                 onTap: () {
-                  _controller.imgFromGallery();
+                  controller.imgFromGallery();
                   Navigator.of(context).pop();
                 },
               )

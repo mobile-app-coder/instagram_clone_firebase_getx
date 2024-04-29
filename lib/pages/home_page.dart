@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:instagram_clone_firebase_getx/controllers/home_controller.dart';
 import 'package:instagram_clone_firebase_getx/pages/profile_page.dart';
 import 'package:instagram_clone_firebase_getx/pages/search_page.dart';
 import 'package:instagram_clone_firebase_getx/pages/upload_page.dart';
 
 import 'feed_page.dart';
 import 'likes_page.dart';
-
 
 class HomePage extends StatefulWidget {
   static const String id = "home_page";
@@ -18,80 +19,75 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  PageController? pageController;
-  int _currentPage = 0;
+  final _controller = Get.find<HomeController>();
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    pageController = PageController();
+    _controller.pageController = PageController();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: pageController,
-        children: [
-          MyFeedPage(
-            pageController: pageController,
-          ),
-          SearchPage(),
-          UploadPage(
-            pageController: pageController,
-          ),
-          LikesPage(),
-          ProfilePage()
-        ],
-        onPageChanged: (index) {
-          setState(() {
-            _currentPage = index;
-          });
-        },
-      ),
-      bottomNavigationBar: CupertinoTabBar(
-        currentIndex: _currentPage,
-        onTap: (index) {
-          setState(() {
-            _currentPage = index;
-            pageController!.animateToPage(index,
-                duration: Duration(milliseconds: 200), curve: Curves.easeIn);
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              size: 32,
+    return GetBuilder<HomeController>(builder: (_) {
+      return Scaffold(
+        body: PageView(
+          controller: _controller.pageController,
+          children: [
+            MyFeedPage(
+              pageController: _controller.pageController,
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              size: 32,
+            SearchPage(),
+            UploadPage(
+              pageController: _controller.pageController,
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add_box,
-              size: 32,
+            LikesPage(),
+            ProfilePage()
+          ],
+          onPageChanged: (int index) {
+            _controller.onPageChange(index);
+          },
+        ),
+        bottomNavigationBar: CupertinoTabBar(
+          currentIndex: _controller.currentPage,
+          onTap: (int index) {
+            _controller.onBottomChange(index);
+          },
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                size: 32,
+              ),
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite,
-              size: 32,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.search,
+                size: 32,
+              ),
             ),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.account_circle,
-              size: 32,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.add_box,
+                size: 32,
+              ),
             ),
-          )
-        ],
-      ),
-    );
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.favorite,
+                size: 32,
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.account_circle,
+                size: 32,
+              ),
+            )
+          ],
+        ),
+      );
+    });
   }
 }

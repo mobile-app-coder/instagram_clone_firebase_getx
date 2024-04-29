@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 import 'package:instagram_clone_firebase_getx/controllers/feed_controller.dart';
+import 'package:instagram_clone_firebase_getx/controllers/home_controller.dart';
 import 'package:instagram_clone_firebase_getx/controllers/like_controller.dart';
 import 'package:instagram_clone_firebase_getx/controllers/profile_controller.dart';
 import 'package:instagram_clone_firebase_getx/controllers/search_page_controller.dart';
+import 'package:instagram_clone_firebase_getx/controllers/splash_controller.dart';
 import 'package:instagram_clone_firebase_getx/controllers/upload_controller.dart';
 
 class RootBinding implements Bindings {
@@ -13,5 +15,7 @@ class RootBinding implements Bindings {
     Get.lazyPut(() => SearchPageController(), fenix: true);
     Get.lazyPut(() => LikePageController(), fenix: true);
     Get.lazyPut(() => ProfilePageController(), fenix: true);
+    Get.lazyPut(() => SplashController(), fenix: true);
+    Get.lazyPut(() => HomeController(), fenix: true);
   }
 }

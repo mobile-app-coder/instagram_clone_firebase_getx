@@ -15,6 +15,8 @@ class LikePageController extends GetxController {
     DBService.loadLikes().then((value) => {
           _resLoadPost(value),
         });
+    update();
+
   }
 
   dialogRemovePost(Post post, BuildContext context) async {
