@@ -1,3 +1,4 @@
+# Instagramm
 This is a instagram like application made with fluttter.
 
 Here you can share your posts, follow your fiends, like their posts.
@@ -44,6 +45,11 @@ You can download the latest version of the APK from the [Releases](app-release.a
 Or scan qrcode to download
 
 ![Image description](download.png)
+
+
+
+![Image description](https://github.com/abdusattoryaminjonov/instagram/raw/master/img_2.png)
+![Image description](https://github.com/abdusattoryaminjonov/instagram/raw/master/img_1.png)
 
 
 
