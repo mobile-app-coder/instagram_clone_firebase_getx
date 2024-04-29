@@ -36,5 +36,14 @@ Libraries used in this application:
   
   logger: ^2.2.0
 
-  
+
+  ## Download the APK
+
+You can download the latest version of the APK from the [Releases](app-release.apk) page.
+
+Or scan qrcode to download
+![Image description](download.png)
+
+
+
 
