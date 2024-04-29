@@ -1,9 +1,9 @@
 # Instagramm
-This is instagram like application made with fluttter.
+# This is instagram like application made with fluttter.
 
 Here you can share your posts, follow your fiends, like their posts.
 
-Application was made using getx architecture
+# Application was made using getx architecture
 
 Application uses firebase as a backend to store posts 
 
